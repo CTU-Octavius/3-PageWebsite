@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Form</title>
+    <link rel="stylesheet" type="text/css" href="External CSS">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
     <link rel="stylesheet" href="contact.css"> <!-- Link to external CSS -->
 </head>
 <body>
@@ -78,6 +85,38 @@
             </td>
         </tr>
     </table>
+
+    <script>
+       
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("message").value;
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            // Check if name is empty
+            if (name === "") {
+                alert("Name must be filled out");
+                return false;
+            }
+
+            // Check if email is valid
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address");
+                return false;
+            }
+
+            // Check if message is empty
+            if (message === "") {
+                alert("Message must be filled out");
+                return false;
+            }
+
+            // If all validations pass
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
 
 </body>
 </html>
